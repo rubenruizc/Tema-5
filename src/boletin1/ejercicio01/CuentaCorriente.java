@@ -1,4 +1,4 @@
-package boletin1.Ejercicio01;
+package boletin1.ejercicio01;
 
 public class CuentaCorriente {
 	
@@ -25,14 +25,17 @@ public class CuentaCorriente {
 		
 		super();
 		
-		if (dni != null && !dni.equals(""));
-		this.dni = dni;
+		if (dni != null && !dni.equals("")) {
+			this.dni = dni;
+		}
 		
-		if (nombre != null && !nombre.equals(""));
-		this.nombre = nombre;
+		if (nombre != null && !nombre.equals("")) {
+			this.nombre = nombre;	
+		}
 		
-		if (saldo >=0)
-		this.saldo = saldo;
+		if (saldo >=0) {
+			this.saldo = saldo;
+		}
 	}
 	
 	

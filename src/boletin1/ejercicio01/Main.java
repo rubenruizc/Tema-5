@@ -1,11 +1,12 @@
-package boletin1.Ejercicio01;
+package boletin1.ejercicio01;
 
 import java.util.Scanner;
 
 public class Main {
 
+	static 	Scanner sc = new Scanner (System.in);
+ 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner (System.in);
 		String nombre;
 		String dni;
 		double saldo;
@@ -26,6 +27,8 @@ public class Main {
 		System.out.println(cc.getSaldo());
 		
 		sc.close();
+		
+		
 
 	}
 
