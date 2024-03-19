@@ -3,15 +3,6 @@ package boletin1crud.ejercicio02;
 public class Articulo {
 
 	/**
-	 * Esta clase Articulo que representa los artículos de un almacén. Estos
-	 * artículos contarán con un código único, una descripción, el precio sin IVA,
-	 * precio con IVA y el stock.
-	 * 
-	 * @author Elena
-	 * @version 1.0
-	 */
-
-	/**
 	 * Atributo código del producto que va a ser un valor único
 	 */
 	private int codigo;
@@ -42,6 +33,10 @@ public class Articulo {
 	public Articulo() {
 	}
 
+	/**
+	 * Constructo con el parámetro codigo
+	 * @param codigo Parámetro donde guardaremos el código del artículo
+	 */
 	public Articulo(int codigo) {
 		if (codigo > 0) {
 			this.codigo = codigo;
@@ -78,31 +73,20 @@ public class Articulo {
 			this.stock = stock;
 		}
 
-	} // fin constructor
+	} 
 
-	/**
-	 * Devuelve el código del producto
-	 * 
-	 * @return El código del producto
-	 */
+	// GET del atributo codigo
 	public int getCodigo() {
 		return codigo;
 	}
 
-	/**
-	 * Devuelve la descripción del producto
-	 * 
-	 * @return La descripción del producto
-	 */
+	
+	// GET/SET del atributo descripcion
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-	/**
-	 * Modifica la descripción del producto
-	 * 
-	 * @param descripcion Nueva descripción para el producto
-	 */
+
 	public void setDescripcion(String descripcion) {
 		if (descripcion != null && !descripcion.equals("")) {
 			this.descripcion = descripcion;
@@ -110,11 +94,7 @@ public class Articulo {
 
 	}
 
-	/**
-	 * Devuelve el precio de compra del producto
-	 * 
-	 * @return El precio de compra del producto
-	 */
+	// GET/SET del atributo precioCompra
 	public double getPrecioCompra() {
 		return precioCompra;
 	}
@@ -123,6 +103,7 @@ public class Articulo {
 		this.precioCompra = precioCompra;
 	}
 
+	// GET/SET del atributo precioVenta
 	public double getPrecioVenta() {
 		return precioVenta;
 	}
@@ -131,6 +112,7 @@ public class Articulo {
 		this.precioVenta = precioVenta;
 	}
 
+	// GET/SET del atributo stock
 	public int getStock() {
 		return stock;
 	}
@@ -140,12 +122,10 @@ public class Articulo {
 	}
 
 	/**
-	 * Método toString que devuelve una cadena con la información del artículo en
-	 * este formato: Código: 1 Descripción: descripción del artículo ...
+	 * Método toString que devuelve una cadena con la información del artículo 
 	 * 
 	 * @return Devuelve una cadena con la información del artículo
 	 */
-	@Override
 	public String toString() {
 		String cadena = "--------------------------------------------------\n";
 
@@ -158,7 +138,12 @@ public class Articulo {
 		return cadena;
 	}
 
-	@Override
+
+	/**
+	 * Método que comprueba si son iguales 
+	 * 
+	 * @return Devuelve si son o no iguales
+	 */
 	public boolean equals(Object obj) {
 		boolean iguales = false;
 

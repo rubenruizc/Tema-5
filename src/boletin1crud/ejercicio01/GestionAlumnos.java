@@ -5,11 +5,21 @@ import java.util.Scanner;
 public class GestionAlumnos {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		
+		
+		// Variable donde guardaremos la opción del usuario
 		int opc;
+		
+		// Variable donde guardaremos el nombre del alumno
 		String nombre;
+		
+		// Variable donde guardaremos la nota del alumno
 		double nota;
+		
+		// Scanner para leer del teclado
+		Scanner sc = new Scanner(System.in);
 
+		// Bucle para ir preguntando al usuario hasta que su opción sea igual a 5
 		do {
 			menu();
 			opc = sc.nextInt();
@@ -55,9 +65,14 @@ public class GestionAlumnos {
 			}
 		} while (opc != 5);
 
+		// Cerramos el Scanner
 		sc.close();
-	}
+		
+	} // Cierre del main
 
+	/**
+	 * Método que imprime el menú de opciones del usuario
+	 */
 	public static void menu() {
 		System.out.println("ALUMNOS/AS");
 		System.out.println("==========");
@@ -69,4 +84,4 @@ public class GestionAlumnos {
 		System.out.println("¿Qué opción quiere ejecutar?");
 	}
 
-}
+} // Cierre de la clase

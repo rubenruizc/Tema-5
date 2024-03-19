@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
+	// Scanner para leer del teclado
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
