@@ -2,90 +2,122 @@ package boletin1.ejercicio01;
 
 public class CuentaCorriente {
 	
-	private String dni;
+	/**
+	 * Atributo donde guardaremos el DNI del dueño de la cuenta
+	 */
+	private String dni = "";
 	
-	private String nombre;
+	/**
+	 * Atributo donde guardaremos el nombre del dueño de la cuenta
+	 */
+	private String nombre = "";
 	
+	/**
+	 * Atrivuto donde guardaremos el saldo de la cuenta
+	 */
 	private double saldo;
-	
-	public CuentaCorriente (String dni, double saldo) {
-		
-		super();
-		
-		if (dni != null && !dni.equals(""));
-		// El atributo DNI tendrá los valores del parámetro dni
-		this.dni = dni;
-		
-		if (saldo >=0)
-		// El atributo Saldo tendrá los valores del parámetro saldo
-		this.saldo = saldo;
-	}
-	
-	public CuentaCorriente (String dni, String nombre, double saldo) {
-		
-		super();
-		
+
+	public CuentaCorriente(String dni, double saldo) {
 		if (dni != null && !dni.equals("")) {
 			this.dni = dni;
 		}
-		
-		if (nombre != null && !nombre.equals("")) {
-			this.nombre = nombre;	
-		}
-		
-		if (saldo >=0) {
+		if (saldo >= 0) {
 			this.saldo = saldo;
 		}
 	}
-	
-	
-	
-	public String getDni() {
-		return dni;
+
+	public CuentaCorriente(String dni, String nombre, double saldo) {
+		this(dni, saldo);
+		if (nombre != null && !nombre.equals("")) {
+			this.nombre = nombre;
+		}
 	}
 
-	public void setDni(String dni) {
-		this.dni = dni;
+	// GET/SET del atributo dni
+	public String getDni() {
+		return dni;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
+	// GET/SET del atributo nombre
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		if (nombre != null && !nombre.equals("")) {
+			this.nombre = nombre;
+		}
 	}
-
+	
+	// GET del atributo DNI
 	public double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(double saldo) {
-		this.saldo = saldo;
+	/**
+	 * Método que saca dinero de la cuenta
+	 * @param dinero Parámetro para introducir la cantidad de dinero
+	 * @return Devolvemos si se ha podido ejecutar
+	 */
+	public boolean sacarDinero(double dinero) {
+		boolean transaccion = false;
+
+		if (this.saldo >= dinero) {
+			this.saldo -= dinero;
+			transaccion = true;
+		}
+
+		return transaccion;
 	}
 
-	public boolean sacarDinero (double cantidadSacar) {
-		boolean esPosible = false;
-		
-		if (this.saldo >= cantidadSacar) {
-			esPosible = true;
+	/**
+	 * Método para poder ingresar dinero en la cuenta
+	 * @param dinero Parámetro para introducir la cantidad de dinero
+	 */
+	public void ingresarDinero(double dinero) {
+		if (dinero > 0) {
+			this.saldo += dinero;
 		}
-		
-		return esPosible;
 	}
-	
-	public double meterDinero (double cantidadIngresar) {
-		double cantidadFinal;
-		
-		cantidadFinal = this.saldo + cantidadIngresar;
-		
-		return cantidadFinal;
-	}
-	
-	public void informacionCuenta () {
-		System.out.println("Nombre Cuenta: " + this.nombre);
+
+	/**
+	 * Método para imprimir la información de la cuenta
+	 */
+	public void mostrarInformacion() {
+		System.out.println("Titular: " + this.nombre);
 		System.out.println("DNI: " + this.dni);
-		System.out.println("Saldo Cuenta: " + this.saldo);
+		System.out.println("Saldo: " + this.saldo);
+	}
+
+	/**
+	 * Método para imprimir la información de la cuenta
+	 */
+	public String toString() {
+		String cadena = "";
+
+		cadena += "------------------------------\n";
+		cadena += "Titular: " + this.nombre + "\n";
+		cadena += "DNI: " + this.dni + "\n";
+		cadena += "Saldo: " + this.saldo + "\n";
+		cadena += "------------------------------";
+		
+		return cadena;
 	}
 	
+
+	/**
+	 * Método para saber si hay dos cuentas iguales
+	 * @param c Parámetro para introducir la cuenta y su información
+	 * @return Devolvemos si es igual o no 
+	 */
+	public boolean equals(CuentaCorriente c) {
+		boolean sonIguales = false;
+
+		if (this.dni.equals(c.dni)) {
+			sonIguales = true;
+		}
+
+		return sonIguales;
+	}
+
 }
